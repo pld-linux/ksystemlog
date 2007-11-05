@@ -1,0 +1,26 @@
+--- ksystemlog-0.3.2/ksystemlog/src/ksystemlog.desktop.orig	2005-07-17 00:38:25.000000000 +0200
++++ ksystemlog-0.3.2/ksystemlog/src/ksystemlog.desktop	2007-11-05 20:33:09.000000000 +0100
+@@ -6,6 +6,7 @@
+ Exec=kdesu ksystemlog %i %m -caption "%c"
+ Icon=ksystemlog
+ Type=Application
++Categories=System;Administration;
+ DocPath=ksystemlog/ksystemlog.html
+ Comment=System log viewer tool
+ Comment[da]=Værktøj til at vise systemlog
+@@ -14,6 +15,7 @@
+ Comment[fr]=Outil de visualisation des journaux système
+ Comment[it]=Strumento di visualizzazione registro di sistema (log)
+ Comment[pa]=ਸਿਸਟਮ ਲਾਗ ਦਰਸ਼ਕ ਸੰਦ
++Comment[pl]=Narzędzie do oglądania logów systemowych
+ Comment[pt]=Ferramenta de visualização dos registos do sistema
+ Comment[sv]=Visningsverktyg för systemlogg
+ Comment[tr]=Sistem günlük görüntüleyicisi aracı
+@@ -22,6 +24,7 @@
+ GenericName[da]=System logfremviser
+ GenericName[et]=Süsteemse logi näitaja
+ GenericName[it]=Visualizzatore registri di sistema
++GenericName[pl]=Przegladarka logów systemowych
+ GenericName[pt]=Visualizador de Registos do Sistema
+ GenericName[sv]=Systemloggvisning
+ GenericName[tr]=Sistem Günlükleri Görüntüleyicisi
