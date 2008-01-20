@@ -1,6 +1,5 @@
 #
 # TODO:
-# - autotools?
 # - update configuration file for PLD
 # - suggests syslog/syslog-ng
 #
@@ -10,13 +9,11 @@ Name:		ksystemlog
 Version:	0.3.2
 Release:	0.5
 Epoch:		1
-License:	GPL
+License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ksystemlog.forum-software.org/archives/src/%{name}-%{version}.tar.bz2
 # Source0-md5:	ca98b571202b6f18a9294face233b9f0
 Patch0:		%{name}-desktop.patch
-#Patch1: %{name}-am110.patch
-#Patch2: kde-ac260-lt.patch
 URL:		http://ksystemlog.forum-software.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -49,15 +46,8 @@ komunikat, użytkownika, proces, nazwę hosta itp.).
 %prep
 %setup -q
 %patch0 -p1
-#%patch1 -p1
-#%patch2 -p1
 
 %build
-#% {__aclocal}
-#% {__autoconf}
-#% {__autoheader}
-#% {__automake}
-
 %configure \
 %if "%{_lib}" == "lib64"
 	--enable-libsuffix=64
@@ -72,6 +62,8 @@ install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_desktopdir}/kde}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
 	kdelnkdir=%{_desktopdir}
+
+# missing in SUBDIRS
 %{__make} -C ksystemlog/po install \
 	DESTDIR=$RPM_BUILD_ROOT
 %{__make} -C ksystemlog/doc install \
@@ -86,10 +78,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS COPYING INSTALL ChangeLog README TODO
+%doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/ksystemlog
-%{_desktopdir}/ksystemlog.desktop
-%{_datadir}/config.kcfg/ksystemlog.kcfg
 %{_datadir}/apps/ksystemlog
-%{_iconsdir}/*/*/*/*.png
+%{_datadir}/config.kcfg/ksystemlog.kcfg
+%{_desktopdir}/ksystemlog.desktop
+%{_iconsdir}/hicolor/*/apps/ksystemlog.png
 %{_iconsdir}/hicolor/scalable/apps/ksystemlog.svgz
