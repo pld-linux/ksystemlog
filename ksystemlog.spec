@@ -1,12 +1,11 @@
 #
 # TODO:
-# - pl desc
 # - autotools?
 # - update configuration file for PLD
 # - suggests syslog/syslog-ng
 #
 Summary:	System log viewer
-Summary(pl.UTF-8):Przegladarka logów systemowych
+Summary(pl.UTF-8):	Przegladarka logów systemowych
 Name:		ksystemlog
 Version:	0.3.2
 Release:	0.5
@@ -32,12 +31,20 @@ KSystemLog aims to be as simple as possible, with menu displaying
 available Logs of the system.
 
 KSystemLog is able to read log lines from multiple files, sorting them
-as quickier as possible (I think I still have some works to improve
-that ;-), auto displaying new log lines (with a bold font to better
-see them), display advanced information about each lines (level, date,
-message, user, process, host name, etc.)
+as quickier as possible (there are probably still some works to
+improve that), auto displaying new log lines (with a bold font to
+better see them), display advanced information about each lines
+(level, date, message, user, process, host name, etc.).
 
-#% description -l pl.UTF-8
+%description -l pl.UTF-8
+KSystelLog ma być jak najprostszą aplikacją z menu pokazującym
+dostępne logi systemowe.
+
+Potrafi czytać linie logów z wielu plików, sortować je jak najszybciej
+(tu prawdopodobnie jest jeszcze trochę do zrobienia), automatycznie
+wyświetlać nowe linie logów (grubym fontem, żeby były lepiej widoczne),
+wyświetlać rozszerzone informacje o każdej linii (poziom, datę,
+komunikat, użytkownika, proces, nazwę hosta itp.).
 
 %prep
 %setup -q
@@ -51,11 +58,9 @@ message, user, process, host name, etc.)
 #% {__autoheader}
 #% {__automake}
 
+%configure \
 %if "%{_lib}" == "lib64"
-    %configure \
 	--enable-libsuffix=64
-%else
-    %configure
 %endif
 
 %{__make}
